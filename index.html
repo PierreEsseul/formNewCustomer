@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Flat</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js"></script>
+
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <script>
+            (function() {
+                emailjs.init("yzVJxs8R9yxq0Rydr");
+            })();
+        </script>
+    </head>
+
+    <body>
+            <div id="step1" class="form-step current-step">
+                <div class="form">
+                    <h2>Informations Personselles:</h2>
+                    
+                    <label for="surname">NOM :</label>
+                    <input type="text" id="surname">
+
+                    <label for="name">Prénom :</label>
+                    <input type="text" id="name">
+
+                    <label for="date">Date d'anniversaire :</label>
+                    <input type="date" id="date">
+                    
+                    <label for="phone">Numéro de téléphone :</label>
+                    <input type="phone" id="phone">
+                    
+                    <label for="email">Mail :</label>
+                    <input type="email" id="email"><br>
+                    
+                    <button type="button" onclick="nextStep()">Suivant</button>
+                </div>
+            </div>
+
+            <div id="step2" class="form-step">
+                <div class="form">
+                    <h2>LOGEMENT:</h2>
+                    
+                    <label for="address">Adresse du logement :</label>
+                    <input type="text" id="address">
+                    
+                    <label for="cp">Code Postale :</label>
+                    <input type="text" id="cp">
+                    
+                    <label for="city">Ville :</label>
+                    <input type="text" id="city">
+                    
+                    <label for="code1">Code porte de la rue :</label>
+                    <input type="number" id="code1">
+                    
+                    <label for="code2">Code dans le sas :</label>
+                    <input type="number" id="code2">
+
+                    <label for="mailbox">Numéro et/ou Nom de la Boite au Lettre :</label>
+                    <input type="text" id="mailbox">
+                    
+                    <label for="floor">Étage du logement :</label>
+                    <input type="text" id="floor">
+
+                    <label for="key">Nombre de jeux de clés :</label>
+                    <input type="number" id="key">
+                    
+                    <div class="button">
+                        <button type="button" onclick="previousStep()">Précédent</button>
+                        <button type="button" onclick="nextStep()">Suivant</button>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div id="step3" class="form-step">
+                <div class="form">
+                    <h2>CAPACITÉ</h2>
+
+                    <label for="area">Superficie du logement en m2:</label>
+                    <input type="number" id="area">
+
+                    <label for="pax">Nombre de personnes pouvant être accueillie :</label>
+                    <input type="number" id="pax">
+
+                    <label for="room">Nombre de chambre(s):</label>
+                    <input type="number" id="room">
+                    
+                    <label for="bed">Nombre de lit(s):</label>
+                    <input type="number" id="bed">
+
+                    <div class="button">
+                        <button type="button" onclick="previousStep()">Précédent</button>
+                        <button type="button" onclick="nextStep()">Suivant</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step4" class="form-step">
+                <div class="form">
+                    <h2>EQUIPEMENTS GÉNÉRAL:</h2>
+
+                    <div>
+                        <label for="iron">Fer à Repasser</label>
+                        <input type="checkbox" id="iron" value="Fer à Repasser">
+                    </div>
+                    
+                    <div>
+                        <label for="ironingBoard">Planche à Repasser</label>
+                        <input type="checkbox" id="ironingBoard" value="Planche à Repasser">
+                    </div>
+
+                    <div>
+                        <label for="bucket">Sceau à Serpillière</label>
+                        <input type="checkbox" id="bucket" value="Sceau à Serpillière">
+                    </div>
+
+                    <div>
+                        <label for="mop">Serpillière à Franche</label>
+                        <input type="checkbox" id="mop" value="Serpillière à Franche">
+                    </div>
+
+                    <div>
+                        <label for="hairDryer">Sèche-Cheveux</label>
+                        <input type="checkbox" id="hairDryer" value="Sèche-Cheveux">
+                    </div>
+
+                    <div class="button">
+                        <button type="button" onclick="previousStep()">Précédent</button>
+                        <button type="button" onclick="nextStep()">Suivant</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step5" class="form-step">
+                <div class="form">
+                    <h2>EQUIPEMENTS CUISINE:</h2>
+
+                    <div>
+                        <label for="coffee">Machine à Café</label>
+                        <input type="checkbox" id="coffee" value="Machine à Café">
+                    </div>
+                    
+                    <div>
+                        <label for="kettle">Bouilloir</label>
+                        <input type="checkbox" id="kettle" value="Bouilloir">
+                    </div>
+                
+                    <div>
+                        <label for="toaster">Grille Pain</label>
+                        <input type="checkbox" id="toaster" value="Grille Pain">
+                    </div>
+                    
+                    <div>
+                        <label for="dishWasher">Lave-Vaiselle</label>
+                        <input type="checkbox" id="dishWasher" value="Lave-Vaiselle">
+                    </div>
+                
+                    <div>
+                        <label for="washingMachine">Machine à Laver</label>
+                        <input type="checkbox" id="washingMachine" value="Machine à Laver">
+                    </div>
+
+                    <div>
+                        <label for="dryer">Sèche-linge</label>
+                        <input type="checkbox" id="dryer" value="Sèche-linge">
+                    </div>
+
+                    <div class="button">
+                        <button type="button" onclick="previousStep()">Précédent</button>
+                        <button type="button" onclick="nextStep()">Suivant</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step6" class="form-step">
+                <div class="form">
+                    <h2>EQUIPEMENTS CHAMBRE:</h2>
+
+                    <div id="bedSizeContainer">
+                        
+                    </div>
+
+                    <div>
+                        <label for="pillows">Oreiller (x2 / lit)</label>
+                        <input type="checkbox" id="pillows" value="Oreiller (x2)">
+                    </div>
+                    
+                    <div>
+                        <label for="duvet">Couette (x1 / lit)</label>
+                        <input type="checkbox" id="duvet" value="Couette">
+                    </div>
+                
+                    <div>
+                        <label for="bedsideTable">Table de Chevet (x2)</label>
+                        <input type="checkbox" id="bedsideTable" value="Table de Chevet (x2)">
+                    </div>
+                    
+                    <div>
+                        <label for="bedsideLamp">Lampe de Chevet (x2)</label>
+                        <input type="checkbox" id="bedsideLamp" value="Lampe de Chevet (x2)">
+                    </div>
+                
+                    <div>
+                        <label for="electricSocket">Prise électrique à proximité du lit</label>
+                        <input type="checkbox" id="electricSocket" value="Prise électrique à proximité du lit">
+                    </div>
+                    
+                    <div>
+                        <label for="storageSpace">Espace de rangement pour les Guest</label>
+                        <input type="checkbox" id="storageSpace" value="Espace de rangement pour Guest">
+                    </div>
+
+                    <div class="button">
+                        <button type="button" onclick="previousStep()">Précédent</button>
+                        <button type="button" onclick="nextStep()">Suivant</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step7" class="form-step">
+                <div class="form">
+                    <h2>INTERNET</h2>
+
+                    <label for="wifi">Nom du WIFI :</label>
+                    <input type="text" id="wifi"><br>
+                    
+                    <label for="password">Mot de passe:</label>
+                    <input type="text" id="password">
+                    
+                    <div class="button">
+                        <button type="button" onclick="previousStep()">Précédent</button>
+                        <button type="button" onclick="showResult()">Terminer</button>
+                    </div>
+                </div>
+            </div>    
+
+            <div id="result" class="form-step">
+                <h2>Résultat</h2>
+                <p id="result-text"></p>
+            </div>
+
+            <button id="submitButton" onclick="sendMail()" style="display: none;">Envoyer les informations</button>
+
+            <div id="form-container"></div>
+    </body>
+</html>

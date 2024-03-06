@@ -1,0 +1,44 @@
+.form-step {
+    display: none;
+}
+.current-step {
+    display: block;
+}
+
+label{
+    margin-top: 20px;
+}
+
+input {
+    align-items: center;
+    margin-top: 8px;
+    height: 20px;
+}
+
+.form {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    font-size: 2vw;
+    width: 14vw;
+    height: 45px;
+    margin: 20px auto auto auto;
+    color: black;
+    background-color: white;
+    border: solid black;
+    border-radius: 30px 30px;
+}
+
+button:hover {
+    background-color: black;
+    color: white
+}
+
+.button {
+    display: flex;
+    justify-content: space-around;
+}
