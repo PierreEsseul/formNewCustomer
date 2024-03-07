@@ -27,6 +27,17 @@ h2 {
     text-decoration: underline;
 }
 
+h3 {
+    font-size: 2vw;
+    width: 14vw;
+    height: 45px;
+    margin: 20px auto auto auto;
+    background-color: white;
+    border: 2px solid rgb(241,215,112);
+    border-radius: 30px 30px;
+    color: rgb(241,215,112);
+}
+
 label{
     margin-top: 20px;
 }
@@ -48,12 +59,11 @@ input {
 
 button {
     font-size: 2vw;
-    width: 14vw;
-    height: 45px;
-    margin: 20px auto auto auto;
-    color: black;
+    width: 45%;
+    text-align: center;
+    margin: 20px auto 7% auto;
     background-color: white;
-    border: solid black;
+    border: 3px solid rgb(241, 215, 112);
     border-radius: 30px 30px;
 }
 

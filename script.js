@@ -222,8 +222,16 @@ function sendMail() {
     
     emailjs.send('service_9b7xk5g', 'template_0wbrehf', templateParams)
         .then(function(response) {
-            console.log('Vos information ont bien été envoyé', response);
-        }, function(error) {
+        // Remplacer le bouton par un message de confirmation
+        var submitButton = document.getElementById("submitButton");
+        submitButton.style.display = "none"; // Masquer le bouton
+
+        // Créer et afficher le message de confirmation
+        var confirmationMessage = document.createElement("h3");
+        confirmationMessage.textContent = "Merci, vos informations ont bien été envoyées";
+        document.getElementById("form-container").appendChild(confirmationMessage);        }, function(error) {
             console.error('Error sending e-mail:', error);
         });
+    
+  
 }
