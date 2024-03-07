@@ -5,14 +5,38 @@
     display: block;
 }
 
+.logo {
+    width: 50%;
+}
+
+.fond {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+h2 {
+    color: rgb(190, 87, 93);
+    text-decoration: underline;
+}
+
 label{
     margin-top: 20px;
 }
 
 input {
+    border: 2px solid rgb(122, 179, 188);
     align-items: center;
     margin-top: 8px;
     height: 20px;
+    border-radius: 30px 30px;
 }
 
 .form {

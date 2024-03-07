@@ -1,6 +1,7 @@
 let currentStep = 1;
 let bedSizes = []; // Initialisez bedSizes une seule fois ici
 
+
 function previousStep() {
     document.getElementById('step' + currentStep).classList.remove('current-step');
     currentStep--;
@@ -20,9 +21,6 @@ function nextStep() {
 
     // Vide le contenu existant du conteneur
     bedSizeContainer.innerHTML = '';
-
-    // Initialisez le tableau des tailles de lit
-    let bedSizesInputs = [];
 
     // Génère dynamiquement les champs de taille de lit en fonction du nombre de lits saisi
     for (let i = 1; i <= bedCount; i++) {
