@@ -106,6 +106,10 @@ function showResult() {
     const wifi = document.getElementById('wifi').value;
     const password = document.getElementById('password').value;
 
+    // Récupérer les tailles de lit
+    const bedSizeInputs = document.querySelectorAll('.bedSizeInput');
+    bedSizes = Array.from(bedSizeInputs).map(input => input.value);
+
     // Ajouter les tailles des lits
     bedSizes.forEach((size, index) => {
         resultBedSize += `\nTaille du lit ${index + 1}: ${size}<br>`;
@@ -167,6 +171,7 @@ function showResult() {
 }
 
 function sendMail() {
+    
     var templateParams = {
         surname: document.getElementById('surname').value,
         name: document.getElementById('name').value,

@@ -29,9 +29,8 @@ h2 {
 
 h3 {
     font-size: 2vw;
-    width: 14vw;
-    height: 45px;
-    margin: 20px auto auto auto;
+    width: 45%;
+    margin: 20px auto 7% auto;
     background-color: white;
     border: 2px solid rgb(241,215,112);
     border-radius: 30px 30px;
@@ -58,12 +57,12 @@ input {
 }
 
 button {
-    font-size: 2vw;
-    width: 45%;
-    text-align: center;
-    margin: 20px auto 7% auto;
+    font-size: 22px;
+    height: 45px;
+    margin: 20px auto auto auto;
+    color: black;
     background-color: white;
-    border: 3px solid rgb(241, 215, 112);
+    border: 2px solid black;
     border-radius: 30px 30px;
 }
 
