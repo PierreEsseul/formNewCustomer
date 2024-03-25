@@ -52,11 +52,17 @@ input, textarea, select {
 textarea {
     width: 416px; 
     height: 103px;
+    border-radius: 12px 12px;
 }
 
 .form {
     width: 50%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
     display: flex;
     flex-direction: column;
 }

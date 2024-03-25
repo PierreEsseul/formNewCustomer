@@ -112,7 +112,7 @@
                     <h2>EQUIPEMENTS GÉNÉRAL:</h2>
 
                     <div>
-                        <label for="vaccum">Modéle Aspirateur</label>
+                        <label for="vaccum">Modèle Aspirateur</label>
                         <input type="text" id="vaccum">
                     </div>
 
@@ -173,7 +173,7 @@
                     <h2>EQUIPEMENTS CUISINE:</h2>
 
                     <div>
-                        <label for="coffee">Modèle de Machine à Café</label>
+                        <label for="coffee">Modèle de Machine à Café :</label>
                         <input type="text" id="coffee">
                     </div>
                     
@@ -211,6 +211,10 @@
                         </select>
                     </div>
 
+                    <div>
+                        <label for="stove">Cuisinière</label>
+                        <input type="checkbox" id="stove" value="Cuisinière">
+                    </div>
                     <div id="stoveTypeContainer" style="display: none;">
                         <label for="stoveType">Type de cuisinière :</label>
                         <select id="stoveType" name="stoveType">
@@ -221,7 +225,7 @@
                     </div>
                     
                     <div>
-                        <label for="dishWasher">Lave-Vaiselle</label>
+                        <label for="dishWasher">Lave-Vaisselle</label>
                         <input type="checkbox" id="dishWasher" value="Lave-Vaiselle">
                     </div>
                 
@@ -236,7 +240,7 @@
                     </div>
 
                     <div>
-                        <label for="rack">Étendoire</label>
+                        <label for="rack">Étendoir</label>
                         <input type="checkbox" id="rack" value="Etendoire">
                     </div>
 
@@ -297,7 +301,7 @@
                     <h2>EQUIPEMENTS SALLE DE BAIN:</h2>
 
                     <div>
-                        <label for="bathroom">Nombre de Salle de Bain</label>
+                        <label for="bathroom">Nombre de Salle(s) de Bain</label>
                         <input type="number" id="bathroom">
                     </div>
 
@@ -307,17 +311,17 @@
                     </div>
 
                     <div>
-                        <label for="bath">Baignoir</label>
+                        <label for="bath">Baignoire</label>
                         <input type="checkbox" id="bath" value="Baignoir">
                     </div>
 
                     <div>
-                        <label for="wc">WC séparé</label>
+                        <label for="wc">WC séparés</label>
                         <input type="checkbox" id="wc" value="wc">
                     </div>
                     
                     <div>
-                        <label for="landing">WC sur le pallier</label>
+                        <label for="landing">WC sur le palier</label>
                         <input type="checkbox" id="landing" value="palier">
                     </div>
 
@@ -337,8 +341,8 @@
                         <input type="checkbox" id="lift" value="Ascenseur">
                     </div>
                     
-                    <div>
-                        <label for="garbage">Accès local poubelle</label>
+                    <div class="description">
+                        <label for="garbage">Accès local poubelle :</label>
                         <textarea placeholder="  Décrivez comment y accéder en quelques lignes" id="garbage"></textarea>
                     </div>
 
@@ -352,13 +356,13 @@
                     </div>
 
                     <div>
-                        <label for="water">Robinet d'arrivée d'eau général</label>
+                        <label for="water">Robinet d'arrivée d'eau général :</label>
                         <input type="text" id="water">
                     </div>
 
-                    <div>
-                        <label for="meter">Compteur Électrique</label>
-                        <input type="text" id="meter">
+                    <div class="description">
+                        <label for="meter">Compteur Électrique :</label>
+                        <textarea placeholder="  Décrivez où se trouve le compteur électrique" id="meter"></textarea>
                     </div>
 
                     <div>
@@ -366,7 +370,7 @@
                         <input type="number" id="cost">€
                     </div>
 
-                    <div>
+                    <div class="description">
                         <label for="other">Autre</label>
                         <textarea placeholder="  Si vous disposez d'informations supplémentaires à nous transmettre" id="other"></textarea>
                     </div>

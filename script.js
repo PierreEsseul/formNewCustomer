@@ -55,7 +55,7 @@ function nextStep() {
     const cookingCheckbox = document.getElementById('cooking');
     const cookingTypeContainer = document.getElementById('cookingTypeContainer');
 
-    stoveCheckbox.addEventListener('change', function() {
+    cookingCheckbox.addEventListener('change', function() {
         if (cookingCheckbox.checked) {
             cookingTypeContainer.style.display = 'block';
         } else {
@@ -276,7 +276,7 @@ function showResult() {
         Compteur électrique : ${meter}<br>
         Tarif minimum par nuit : ${cost}<br>
         Autre : ${other}<br>
-
+        <br><br>
 
         INTERNET:
         <br><br>
