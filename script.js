@@ -92,6 +92,7 @@ function showResult() {
     const code2 = document.getElementById('code2').value;
     const mailbox = document.getElementById('mailbox').value;
     const floor = document.getElementById('floor').value;
+    const number = document.getElementById('number').value;
     const key = document.getElementById('key').value;
 
     //Step 3: Capacité
@@ -207,6 +208,7 @@ function showResult() {
         Code Porte SaS: ${code2}<br>
         Boîte au Lettre: ${mailbox}<br>
         Etage: ${floor}<br> 
+        Numéro du logement: ${number}<br> 
         Nombre de jeux de Clés : ${key}<br>
         <br><br>
 
@@ -307,6 +309,7 @@ function sendMail() {
         code2: document.getElementById('code2').value,
         mailbox: document.getElementById('mailbox').value,
         floor: document.getElementById('floor').value,
+        number: document.getElementById('number').value,
         key: document.getElementById('key').value,
 
         area: document.getElementById('area').value,
