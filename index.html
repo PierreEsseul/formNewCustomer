@@ -21,22 +21,22 @@
 
             <div id="step1" class="form-step current-step">
                 <div class="form">
-                    <h2>Informations Personselles:</h2>
+                    <h2>Informations Personnelles:</h2>
                     
                     <label for="surname">NOM :</label>
-                    <input type="text" id="surname">
+                    <input type="text" id="surname" required>
 
                     <label for="name">Prénom :</label>
-                    <input type="text" id="name">
+                    <input type="text" id="name" required>
 
                     <label for="date">Date d'anniversaire :</label>
-                    <input type="date" id="date">
+                    <input type="date" id="date" required>
                     
                     <label for="phone">Numéro de téléphone :</label>
-                    <input type="phone" id="phone">
+                    <input type="phone" id="phone" required>
                     
                     <label for="email">Mail :</label>
-                    <input type="email" id="email"><br>
+                    <input type="email" id="email" required><br>
                     
                     <button type="button" onclick="nextStep()">Suivant</button>
                 </div>
@@ -54,6 +54,9 @@
                     
                     <label for="city">Ville :</label>
                     <input type="text" id="city">
+
+                    <label for="subway">Station de métro la plus proche :</label>
+                    <input type="text" id="subway">
                     
                     <label for="code1">Code porte de la rue :</label>
                     <input type="number" id="code1">
@@ -106,6 +109,11 @@
                     <h2>EQUIPEMENTS GÉNÉRAL:</h2>
 
                     <div>
+                        <label for="vaccum">Modéle Aspirateur</label>
+                        <input type="text" id="vaccum">
+                    </div>
+
+                    <div>
                         <label for="iron">Fer à Repasser</label>
                         <input type="checkbox" id="iron" value="Fer à Repasser">
                     </div>
@@ -130,6 +138,26 @@
                         <input type="checkbox" id="hairDryer" value="Sèche-Cheveux">
                     </div>
 
+                    <div>
+                        <label for="fan">Ventilateur</label>
+                        <input type="checkbox" id="fan" value="Ventilateur">
+                    </div>
+
+                    <div>
+                        <label for="air">Climatisation</label>
+                        <input type="checkbox" id="air" value="Climatisation">
+                    </div>
+
+                    <div>
+                        <label for="tv">Télévision</label>
+                        <input type="checkbox" id="tv" value="Télévision">
+                    </div>
+
+                    <div>
+                        <label for="office">Espace de travail</label>
+                        <input type="checkbox" id="office" value="Bureau">
+                    </div>
+
                     <div class="button">
                         <button type="button" onclick="previousStep()">Précédent</button>
                         <button type="button" onclick="nextStep()">Suivant</button>
@@ -142,8 +170,8 @@
                     <h2>EQUIPEMENTS CUISINE:</h2>
 
                     <div>
-                        <label for="coffee">Machine à Café</label>
-                        <input type="checkbox" id="coffee" value="Machine à Café">
+                        <label for="coffee">Modéle de Machine à Café</label>
+                        <input type="text" id="coffee">
                     </div>
                     
                     <div>
@@ -154,6 +182,39 @@
                     <div>
                         <label for="toaster">Grille Pain</label>
                         <input type="checkbox" id="toaster" value="Grille Pain">
+                    </div>
+
+                    <div>
+                        <label for="microwave">Micro-onde</label>
+                        <input type="checkbox" id="microwave" value="Micro-onde">
+                    </div>
+
+                    <div>
+                        <label for="oven">Four</label>
+                        <input type="checkbox" id="oven" value="Four">
+                    </div>
+
+                    <div>
+                        <label for="cooking">Plaque de cuisson</label>
+                        <input type="checkbox" id="cooking" value="Plaque de cuisson">
+                    </div>
+                    <div id="cookingTypeContainer" style="display: none;">
+                        <label for="cookingType">Type de cuisinière :</label>
+                        <select id="cookingType" name="cookingType">
+                            <option value="GAZ">Gaz</option>
+                            <option value="Électrique Induction">Électrique Induction</option>
+                            <option value="Électrique Vitro-céramique">Électrique Vitri-Céramique</option>
+
+                        </select>
+                    </div>
+
+                    <div id="stoveTypeContainer" style="display: none;">
+                        <label for="stoveType">Type de cuisinière :</label>
+                        <select id="stoveType" name="stoveType">
+                            <option value="GAZ">Gaz</option>
+                            <option value="Électrique Induction">Électrique Induction</option>
+                            <option value="Électrique Vitro-Céramique">Électrique Vitro-Céramique</option>
+                        </select>
                     </div>
                     
                     <div>
@@ -169,6 +230,11 @@
                     <div>
                         <label for="dryer">Sèche-linge</label>
                         <input type="checkbox" id="dryer" value="Sèche-linge">
+                    </div>
+
+                    <div>
+                        <label for="rack">Étendoire</label>
+                        <input type="checkbox" id="rack" value="Etendoire">
                     </div>
 
                     <div class="button">
@@ -224,6 +290,92 @@
             </div>
 
             <div id="step7" class="form-step">
+                <div class="form">
+                    <h2>EQUIPEMENTS SALLE DE BAIN:</h2>
+
+                    <div>
+                        <label for="bathroom">Nombre de Salle de Bain</label>
+                        <input type="number" id="bathroom">
+                    </div>
+
+                    <div>
+                        <label for="shower">Douche</label>
+                        <input type="checkbox" id="shower" value="Douche">
+                    </div>
+
+                    <div>
+                        <label for="bath">Baignoir</label>
+                        <input type="checkbox" id="bath" value="Baignoir">
+                    </div>
+
+                    <div>
+                        <label for="wc">WC séparé</label>
+                        <input type="checkbox" id="wc" value="wc">
+                    </div>
+                    
+                    <div>
+                        <label for="landing">WC sur le pallier</label>
+                        <input type="checkbox" id="landing" value="palier">
+                    </div>
+
+                    <div class="button">
+                        <button type="button" onclick="previousStep()">Précédent</button>
+                        <button type="button" onclick="nextStep()">Suivant</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step8" class="form-step">
+                <div class="form">
+                    <h2>DETAILS TECHNIQUES:</h2>
+
+                    <div>
+                        <label for="lift">Ascenseur</label>
+                        <input type="checkbox" id="lift" value="Ascenseur">
+                    </div>
+                    
+                    <div>
+                        <label for="garbage">Accès local poubelle</label>
+                        <textarea placeholder="  Décrivez comment y accéder en quelques lignes" id="garbage"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="heating">Type de chauffage</label>
+                        <select id="heating" name="heating">
+                            <option value="Individuel Électrique">Individuel Électrique</option>
+                            <option value="Individuel Gaz">Individuel Gaz</option>
+                            <option value="Central">Central</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="water">Robinet d'arrivée d'eau général</label>
+                        <input type="text" id="water">
+                    </div>
+
+                    <div>
+                        <label for="meter">Compteur Électrique</label>
+                        <input type="text" id="meter">
+                    </div>
+
+                    <div>
+                        <label for="cost">Tarif minimum par nuit</label>
+                        <input type="number" id="cost">€
+                    </div>
+
+                    <div>
+                        <label for="other">Autre</label>
+                        <textarea placeholder="  Si vous disposez d'informations supplémentaires à nous transmettre" id="other"></textarea>
+                    </div>
+
+                    <div class="button">
+                        <button type="button" onclick="previousStep()">Précédent</button>
+                        <button type="button" onclick="nextStep()">Suivant</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step9" class="form-step">
                 <div class="form">
                     <h2>INTERNET</h2>
 

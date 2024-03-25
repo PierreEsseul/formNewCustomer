@@ -1,6 +1,9 @@
 let currentStep = 1;
+// Récupérer les réponses  
+let resultBedSize = "";
+let resultCooking= "";
+let resultStove= "";
 let bedSizes = []; // Initialisez bedSizes une seule fois ici
-
 
 function previousStep() {
     document.getElementById('step' + currentStep).classList.remove('current-step');
@@ -48,12 +51,31 @@ function nextStep() {
     bedSizes = Array.from(bedSizeContainer.querySelectorAll('.bedSizeInput')).map(input => input.value);
 
     console.log(bedSizes);
+
+    const cookingCheckbox = document.getElementById('cooking');
+    const cookingTypeContainer = document.getElementById('cookingTypeContainer');
+
+    stoveCheckbox.addEventListener('change', function() {
+        if (cookingCheckbox.checked) {
+            cookingTypeContainer.style.display = 'block';
+        } else {
+            cookingTypeContainer.style.display = 'none';
+        }
+    });
+
+    const stoveCheckbox = document.getElementById('stove');
+    const stoveTypeContainer = document.getElementById('stoveTypeContainer');
+
+    stoveCheckbox.addEventListener('change', function() {
+        if (stoveCheckbox.checked) {
+            stoveTypeContainer.style.display = 'block';
+        } else {
+            stoveTypeContainer.style.display = 'none';
+        }
+    });
 }
 
 function showResult() {
-    // Récupérer les réponses  
-    let resultBedSize = "";
-
     //Step 1: Informations Personnelles
     const surname = document.getElementById('surname').value;
     const name = document.getElementById('name').value;
@@ -65,6 +87,7 @@ function showResult() {
     const address = document.getElementById('address').value;
     const cp = document.getElementById('cp').value;
     const city = document.getElementById('city').value;
+    const subway = document.getElementById('subway').value;
     const code1 = document.getElementById('code1').value;
     const code2 = document.getElementById('code2').value;
     const mailbox = document.getElementById('mailbox').value;
@@ -78,23 +101,64 @@ function showResult() {
     const bed = document.getElementById('bed').value;
     
     //Step 4: Equipements Général
+    const vaccum = document.getElementById('vaccum').value;
     const iron = document.getElementById('iron').checked;
     const ironingBoard = document.getElementById('ironingBoard').checked;
     const bucket = document.getElementById('bucket').checked;
     const mop = document.getElementById('mop').checked;
     const hairDryer = document.getElementById('hairDryer').checked;
+    const fan = document.getElementById('fan').checked;
+    const air = document.getElementById('air').checked;
+    const tv = document.getElementById('tv').checked;
+    const office = document.getElementById('office').checked;
 
-    
     //Step 5: Equipement cuisine
     const coffee = document.getElementById('coffee').checked;
     const kettle = document.getElementById('kettle').checked;
     const toaster = document.getElementById('toaster').checked;
+    const microwave = document.getElementById('microwave').checked;
+    const oven = document.getElementById('oven').checked;
+    const cooking = document.getElementById('cooking').checked;
+    // Récupérer le type de Plaque de cuisson  si la case est cochée
+    const cookingCheckbox = document.getElementById('cooking');
+    const cookingTypeSelect = document.getElementById('cookingType');
+    let cookingType = '';
+
+    if (cookingCheckbox.checked) {
+        cookingType = cookingTypeSelect.value;
+    }
+    // Ajouter les informations sur la Plaque de cuisson si elle est cochée
+    if (cookingCheckbox.checked) {
+        resultCooking += `
+            Plaque de cuisson : Oui<br>
+            Type de Plaque : ${cookingType}<br>
+        `;
+    } else {
+        resultCooking += `Plaque de cuisson : Non<br>`;
+    }
+    // Récupérer le type de cuisinière si la case est cochée
+    const stoveCheckbox = document.getElementById('stove');
+    const stoveTypeSelect = document.getElementById('stoveType');
+    let stoveType = '';
+
+    if (stoveCheckbox.checked) {
+        stoveType = stoveTypeSelect.value;
+    }
+    // Ajouter les informations sur la cuisinière si elle est cochée
+    if (stoveCheckbox.checked) {
+        resultStove += `
+            Cuisinière: Oui<br>
+            Type de cuisinière: ${stoveType}<br>
+        `;
+    } else {
+        resultStove += `Cuisinière: Non<br>`;
+    }
     const dishWasher = document.getElementById('dishWasher').checked;
     const washingMachine = document.getElementById('washingMachine').checked;
     const dryer = document.getElementById('dryer').checked;
+    const rack = document.getElementById('rack').checked;
 
     //Step 6: Equipement Chambre
-    console.log(bedSizes);
     const pillows = document.getElementById('pillows').checked;
     const duvet = document.getElementById('duvet').checked;
     const bedsideTable = document.getElementById('bedsideTable').checked;
@@ -102,21 +166,25 @@ function showResult() {
     const electricSocket = document.getElementById('electricSocket').checked;
     const storageSpace = document.getElementById('storageSpace').checked;
 
-    //Step 7: Internet
+    //Step 7: Equipement Salle de Bain
+    const bathroom = document.getElementById('bathroom').value;
+    const shower = document.getElementById('shower').checked;
+    const bath = document.getElementById('bath').checked;
+    const wc = document.getElementById('wc').checked;
+    const landing = document.getElementById('landing').checked;
+
+    //Step 8: Détails technique
+    const lift = document.getElementById('lift').checked;
+    const garbage = document.getElementById('garbage').value;
+    const heating = document.getElementById('heating').value;
+    const water = document.getElementById('water').value;
+    const meter = document.getElementById('meter').value;
+    const cost = document.getElementById('cost').value;
+    const other = document.getElementById('other').value;
+
+    //Step 9: Internet
     const wifi = document.getElementById('wifi').value;
     const password = document.getElementById('password').value;
-
-    // Récupérer les tailles de lit
-    const bedSizeInputs = document.querySelectorAll('.bedSizeInput');
-    bedSizes = Array.from(bedSizeInputs).map(input => input.value);
-
-    // Ajouter les tailles des lits
-    bedSizes.forEach((size, index) => {
-        resultBedSize += `\nTaille du lit ${index + 1}: ${size}<br>`;
-        console.log('function bedSizes.forEach');
-    });
-
-    console.log(resultBedSize);
 
     // Afficher les résultats
     document.getElementById('result-text').innerHTML = `
@@ -128,26 +196,55 @@ function showResult() {
         Téléphone: ${phone}<br> 
         E-mail: ${email}<br>
         <br><br>
+
         LOGEMENT : 
         <br><br>
         Adresse: ${address}<br>
         Code Postal: ${cp}<br> 
         Ville: ${city}<br> 
+        Station de métro: ${subway}<br>
         Code Porte rue: ${code1}<br>
         Code Porte SaS: ${code2}<br>
-        BAL: ${mailbox}<br>
+        Boîte au Lettre: ${mailbox}<br>
         Etage: ${floor}<br> 
         Nombre de jeux de Clés : ${key}<br>
         <br><br>
+
+        CAPACITÉ : 
+        <br><br>
+        Superficie du logement : ${area}<br>
+        Nombre d'hôtes : ${pax}<br>
+        Nombre de chambre(s) : ${room}<br>
+        Nombre de lit(s): ${bed}<br>
+        <br><br>
+
+        ÉQUIPEMENT GÉNÉRAL : 
+        <br><br>
+        Aspirateur : ${vaccum}<br>
+        Fer à repasser : ${iron}<br>
+        Planche à repasser : ${ironingBoard}<br>
+        Sceau à Serpillière : ${bucket}<br>
+        Sèche-Cheveux : ${hairDryer}<br>
+        Ventilateur : ${fan}<br>
+        Climatisation : ${air}<br>
+        Télévision : ${tv}<br>
+        Espace de travail : ${office}<br>
+        <br><br>
+
         ÉQUIPEMENT CUISINE : 
         <br><br>
         Machine a café: ${coffee}<br>
         Bouilloir: ${kettle}<br>
         Grille Pain: ${toaster}<br>
+        Micro-onde : ${microwave}<br>
+        Four : ${oven}<br>
+        ${resultCooking}
+        ${resultStove}
         Lave-Vaiselle: ${dishWasher}<br>
         Machine à Laver: ${washingMachine}<br>
         Sèche-linge: ${dryer}<br>
         <br><br>
+
         EQUIPEMENTS CHAMBRE:
         <br><br>
         ${resultBedSize}
@@ -158,17 +255,40 @@ function showResult() {
         Prise électrique à proximité du lit: ${electricSocket}<br>
         Espace de rangement pour les Guest: ${storageSpace}<br>
         <br><br>
+
+        EQUIPE SALLE DE BAIN
+        <br><br>
+        Nombre de Salle de Bain : ${bathroom}<br>
+        Douche : ${shower}<br>
+        Baignoir : ${bath}<br>
+        WC Séparé : ${wc}<br>
+        WC sur le pallier : ${landing}<br>
+        <br><br>
+
+        DATAILS TECHNIQUES:
+        <br><br>
+        Ascenseur : ${lift}<br>
+        Accès local poubelle : ${garbage}<br>
+        Type de cahuffage : ${heating}<br>
+        Robinet d'arrivée d'eau général : ${water}<br>
+        Compteur électrique : ${meter}<br>
+        Tarif minimum par nuit : ${cost}<br>
+        Autre : ${other}<br>
+
+
         INTERNET:
         <br><br>
         Nom du WIFI : ${wifi}<br>
         Mot de passe: ${password}`;
-
+    
+    // Supprimer la classe 'current-step' et ajouter 'current-step' à la section de résultat
     document.getElementById('step' + currentStep).classList.remove('current-step');
     document.getElementById('result').classList.add('current-step');
 
+    // Afficher le bouton de soumission
     document.getElementById('submitButton').style.display = 'block';
-    
 }
+
 
 function sendMail() {
     
@@ -182,6 +302,7 @@ function sendMail() {
         address: document.getElementById('address').value,
         cp: document.getElementById('cp').value,
         city: document.getElementById('city').value,
+        subway: document.getElementById('subway').value,
         code1: document.getElementById('code1').value,
         code2: document.getElementById('code2').value,
         mailbox: document.getElementById('mailbox').value,
@@ -205,13 +326,13 @@ function sendMail() {
         coffee: document.getElementById('coffee').checked,
         kettle: document.getElementById('kettle').checked,
         toaster: document.getElementById('toaster').checked,
+        stove: resultStove,
         dishWasher: document.getElementById('dishWasher').checked,
         washingMachine: document.getElementById('washingMachine').checked,
         dryer: document.getElementById('dryer').checked,
 
         //Step 6: Equipement Chambre
-        bedSizes: bedSizes,
-
+        bedSizes: resultBedSize,
         pillows: document.getElementById('pillows').checked,
         duvet: document.getElementById('duvet').checked,
         bedsideTable: document.getElementById('bedsideTable').checked,

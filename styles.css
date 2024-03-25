@@ -41,12 +41,17 @@ label{
     margin-top: 20px;
 }
 
-input {
+input, textarea, select {
     border: 2px solid rgb(122, 179, 188);
     align-items: center;
     margin-top: 8px;
     height: 20px;
     border-radius: 30px 30px;
+}
+
+textarea {
+    width: 416px; 
+    height: 103px;
 }
 
 .form {
