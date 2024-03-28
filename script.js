@@ -39,18 +39,18 @@ function nextStep() {
         input.addEventListener('input', function(event) {
             const index = parseInt(event.target.id.replace('bedSizeInput_', ''));
             bedSizes[index] = event.target.value;
+            // Stockez les valeurs des champs de taille de lit dans bedSizes
+            bedSizes.push(event.target.value);
             console.log('MaJ de la valeur bedSizes : ', bedSizes);
         });
 
         bedSizeContainer.appendChild(label);
         bedSizeContainer.appendChild(input);
         bedSizeContainer.appendChild(document.createElement('br'));
+    
+        // Appeler la fonction pour mettre à jour resultBedSize avec les valeurs actuelles de bedSizes
+        updateBedSize();
     }
-
-    // Stockez les valeurs des champs de taille de lit dans bedSizes
-    bedSizes = Array.from(bedSizeContainer.querySelectorAll('.bedSizeInput')).map(input => input.value);
-
-    console.log(bedSizes);
 
     const cookingCheckbox = document.getElementById('cooking');
     const cookingTypeContainer = document.getElementById('cookingTypeContainer');
@@ -73,6 +73,18 @@ function nextStep() {
             stoveTypeContainer.style.display = 'none';
         }
     });
+}
+
+function updateBedSize() {
+    // Mettre à jour resultBedSize avec les tailles de lit saisies par l'utilisateur
+    const bedSizeInputs = document.querySelectorAll('.bedSizeInput');
+    resultBedSize = ""; // Réinitialiser resultBedSize
+
+    bedSizeInputs.forEach((input, index) => {
+        resultBedSize += `Taille du lit ${index + 1}: ${input.value}<br>`;
+    });
+
+    console.log(resultBedSize);
 }
 
 function showResult() {
