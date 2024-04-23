@@ -12,79 +12,100 @@ function previousStep() {
     document.getElementById('step' + currentStep).classList.add('current-step');
 }
 
-function nextStep() {
-    document.getElementById('step' + currentStep).classList.remove('current-step');
-    currentStep++;
-    document.getElementById('step' + currentStep).classList.add('current-step');
+function validateStep() {
+    // Sélectionne tous les champs requis dans la page actuelle
+    const requiredFields = document.querySelectorAll('.form-step.current-step input[required], .form-step.current-step select[required]');
 
-    // Récupère le nombre de lits saisi
-    const bedCount = parseInt(document.getElementById('bed').value);
-
-    // Sélectionne le conteneur pour les champs de taille de lit
-    const bedSizeContainer = document.getElementById('bedSizeContainer');
-
-    // Vide le contenu existant du conteneur
-    bedSizeContainer.innerHTML = '';
-
-    // Génère dynamiquement les champs de taille de lit en fonction du nombre de lits saisi
-    for (let i = 1; i <= bedCount; i++) {
-        const label = document.createElement('label');
-        label.textContent = `Taille du lit ${i} : `;
-
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.placeholder = 'cm x cm'
-        input.classList.add('bedSizeInput'); // Ajoute une classe pour le style CSS
-
-        // Ajoutez un gestionnaire d'événements pour mettre à jour les valeurs des champs de taille de lit
-        input.addEventListener('input', function(event) {
-            const index = parseInt(event.target.id.replace('bedSizeInput_', ''));
-            bedSizes[index] = event.target.value;
-            // Stockez les valeurs des champs de taille de lit dans bedSizes
-            bedSizes.push(event.target.value);
-            console.log('MaJ de la valeur bedSizes : ', bedSizes);
-        });
-
-        bedSizeContainer.appendChild(label);
-        bedSizeContainer.appendChild(input);
-        bedSizeContainer.appendChild(document.createElement('br'));
-    
-        // Appeler la fonction pour mettre à jour resultBedSize avec les valeurs actuelles de bedSizes
-        updateBedSize();
+    // Vérifie si tous les champs requis sont remplis
+    for (const field of requiredFields) {
+        if (!field.value) {
+            // Affiche un message d'erreur si un champ requis est vide
+            alert('Veuillez remplir tous les champs obligatoires.');
+            return false; // Empêche le passage à la page suivante
+        }
     }
 
-    const coffeeCheckbox = document.getElementById('coffee');
-    const coffeeTypeContainer = document.getElementById('coffeeTypeContainer');
+    // Si tous les champs sont remplis, retourne true pour permettre le passage à la page suivante
+    return true;
+}
 
-    coffeeCheckbox.addEventListener('change', function() {
-        if (coffeeCheckbox.checked) {
-            coffeeTypeContainer.style.display = 'block';
-        } else {
-            coffeeTypeContainer.style.display = 'none';
+
+function nextStep() {
+    if (validateStep()) {
+        document.getElementById('step' + currentStep).classList.remove('current-step');
+        currentStep++;
+        document.getElementById('step' + currentStep).classList.add('current-step');
+
+        // Récupère le nombre de lits saisi
+        const bedCount = parseInt(document.getElementById('bed').value);
+
+        // Sélectionne le conteneur pour les champs de taille de lit
+        const bedSizeContainer = document.getElementById('bedSizeContainer');
+
+        // Vide le contenu existant du conteneur
+        bedSizeContainer.innerHTML = '';
+
+        // Génère dynamiquement les champs de taille de lit en fonction du nombre de lits saisi
+        for (let i = 1; i <= bedCount; i++) {
+            const label = document.createElement('label');
+            label.textContent = `Taille du lit ${i} : `;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = 'cm x cm'
+            input.classList.add('bedSizeInput'); // Ajoute une classe pour le style CSS
+
+            // Ajoutez un gestionnaire d'événements pour mettre à jour les valeurs des champs de taille de lit
+            input.addEventListener('input', function(event) {
+                const index = parseInt(event.target.id.replace('bedSizeInput_', ''));
+                bedSizes[index] = event.target.value;
+                // Stockez les valeurs des champs de taille de lit dans bedSizes
+                bedSizes.push(event.target.value);
+                console.log('MaJ de la valeur bedSizes : ', bedSizes);
+            });
+
+            bedSizeContainer.appendChild(label);
+            bedSizeContainer.appendChild(input);
+            bedSizeContainer.appendChild(document.createElement('br'));
+        
+            // Appeler la fonction pour mettre à jour resultBedSize avec les valeurs actuelles de bedSizes
+            updateBedSize();
         }
-    });
 
-    const cookingCheckbox = document.getElementById('cooking');
-    const cookingTypeContainer = document.getElementById('cookingTypeContainer');
+        const coffeeCheckbox = document.getElementById('coffee');
+        const coffeeTypeContainer = document.getElementById('coffeeTypeContainer');
 
-    cookingCheckbox.addEventListener('change', function() {
-        if (cookingCheckbox.checked) {
-            cookingTypeContainer.style.display = 'block';
-        } else {
-            cookingTypeContainer.style.display = 'none';
-        }
-    });
+        coffeeCheckbox.addEventListener('change', function() {
+            if (coffeeCheckbox.checked) {
+                coffeeTypeContainer.style.display = 'block';
+            } else {
+                coffeeTypeContainer.style.display = 'none';
+            }
+        });
 
-    const stoveCheckbox = document.getElementById('stove');
-    const stoveTypeContainer = document.getElementById('stoveTypeContainer');
+        const cookingCheckbox = document.getElementById('cooking');
+        const cookingTypeContainer = document.getElementById('cookingTypeContainer');
 
-    stoveCheckbox.addEventListener('change', function() {
-        if (stoveCheckbox.checked) {
-            stoveTypeContainer.style.display = 'block';
-        } else {
-            stoveTypeContainer.style.display = 'none';
-        }
-    });
+        cookingCheckbox.addEventListener('change', function() {
+            if (cookingCheckbox.checked) {
+                cookingTypeContainer.style.display = 'block';
+            } else {
+                cookingTypeContainer.style.display = 'none';
+            }
+        });
+
+        const stoveCheckbox = document.getElementById('stove');
+        const stoveTypeContainer = document.getElementById('stoveTypeContainer');
+
+        stoveCheckbox.addEventListener('change', function() {
+            if (stoveCheckbox.checked) {
+                stoveTypeContainer.style.display = 'block';
+            } else {
+                stoveTypeContainer.style.display = 'none';
+            }
+        });
+
+    }
 }
 
 function updateBedSize() {
@@ -337,12 +358,14 @@ function showResult() {
 function sendMail() {
     
     var templateParams = {
+        //step1
         surname: document.getElementById('surname').value,
         name: document.getElementById('name').value,
         date: document.getElementById('date').value,
         phone: document.getElementById('phone').value,
         email: document.getElementById('email').value,
 
+        //step2
         address: document.getElementById('address').value,
         cp: document.getElementById('cp').value,
         city: document.getElementById('city').value,
@@ -354,28 +377,36 @@ function sendMail() {
         number: document.getElementById('number').value,
         key: document.getElementById('key').value,
 
+        //step3
         area: document.getElementById('area').value,
         pax: document.getElementById('pax').value,
         room: document.getElementById('room').value,  
         bed: document.getElementById('bed').value,
 
         //Step 4: Equipements Général
+        vaccum : document.getElementById('vaccum').value,
         iron: document.getElementById('iron').checked,
         ironingBoard: document.getElementById('ironingBoard').checked,
         bucket: document.getElementById('bucket').checked,
         mop: document.getElementById('mop').checked,
         hairDryer: document.getElementById('hairDryer').checked,
-
+        fan : document.getElementById('fan').checked,
+        air : document.getElementById('air').checked,
+        tv : document.getElementById('tv').checked,
+        office : document.getElementById('office').checked,
         
         //Step 5: Equipement cuisine
         coffee: resultCoffee,
         kettle: document.getElementById('kettle').checked,
         toaster: document.getElementById('toaster').checked,
+        microwave : document.getElementById('microwave').checked,
+        oven : document.getElementById('oven').checked,
         cooking : resultCooking,
-        stove: resultStove,
-        dishWasher: document.getElementById('dishWasher').checked,
-        washingMachine: document.getElementById('washingMachine').checked,
-        dryer: document.getElementById('dryer').checked,
+        stove : resultStove,
+        dishWasher : document.getElementById('dishWasher').checked,
+        washingMachine : document.getElementById('washingMachine').checked,
+        dryer : document.getElementById('dryer').checked,
+        rack : document.getElementById('rack').checked,
 
         //Step 6: Equipement Chambre
         bedSizes: resultBedSize,
@@ -385,6 +416,13 @@ function sendMail() {
         bedsideLamp: document.getElementById('bedsideLamp').checked,
         electricSocket: document.getElementById('electricSocket').checked,
         storageSpace: document.getElementById('storageSpace').checked,
+
+        //Step 7: Equipement Salle de Bain
+        bathroom : document.getElementById('bathroom').value, 
+        shower : document.getElementById('shower').checked,
+        bath : document.getElementById('bath').checked,
+        wc : document.getElementById('wc').checked,
+        landing : document.getElementById('landing').checked,
 
         //Step 8: Détails technique
         lift: document.getElementById('lift').checked,
@@ -396,7 +434,7 @@ function sendMail() {
         other: document.getElementById('other').value,
 
 
-        //Step 7: Internet
+        //Step 9: Internet
         wifi: document.getElementById('wifi').value,
         password: document.getElementById('password').value,
 
