@@ -173,8 +173,18 @@
                     <h2>EQUIPEMENTS CUISINE:</h2>
 
                     <div>
-                        <label for="coffee">Modèle de Machine à Café :</label>
-                        <input type="text" id="coffee">
+                        <label for="coffee">Machine à café</label>
+                        <input type="checkbox" id="coffee" value="Machine à café">
+                    </div>
+                    <div id="coffeeTypeContainer" style="display: none;">
+                        <label for="coffeeType">Type de Machine à café :</label>
+                        <select id="coffeeType" name="coffeeType">
+                            <option value="Nespresso">Nespresso</option>
+                            <option value="Dolce Gusto">Dolce Gusto</option>
+                            <option value="Senseo">Senseo</option>
+                            <option value="Machine à Grain">Machine à Grain</option>
+                            <option value="Cafetière Filtre">Cafetière Filtre</option>
+                        </select>
                     </div>
                     
                     <div>

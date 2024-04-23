@@ -1,6 +1,7 @@
 let currentStep = 1;
 // Récupérer les réponses  
 let resultBedSize = "";
+let resultCoffee= "";
 let resultCooking= "";
 let resultStove= "";
 let bedSizes = []; // Initialisez bedSizes une seule fois ici
@@ -51,6 +52,17 @@ function nextStep() {
         // Appeler la fonction pour mettre à jour resultBedSize avec les valeurs actuelles de bedSizes
         updateBedSize();
     }
+
+    const coffeeCheckbox = document.getElementById('coffee');
+    const coffeeTypeContainer = document.getElementById('coffeeTypeContainer');
+
+    coffeeCheckbox.addEventListener('change', function() {
+        if (coffeeCheckbox.checked) {
+            coffeeTypeContainer.style.display = 'block';
+        } else {
+            coffeeTypeContainer.style.display = 'none';
+        }
+    });
 
     const cookingCheckbox = document.getElementById('cooking');
     const cookingTypeContainer = document.getElementById('cookingTypeContainer');
@@ -126,12 +138,27 @@ function showResult() {
     const office = document.getElementById('office').checked;
 
     //Step 5: Equipement cuisine
-    const coffee = document.getElementById('coffee').checked;
+    // Récupérer le type de Machine à café  si la case est cochée
+    const coffeeCheckbox = document.getElementById('coffee');
+    const coffeeTypeSelect = document.getElementById('coffeeType');
+    let coffeeType = '';
+
+    if (coffeeCheckbox.checked) {
+        coffeeType = coffeeTypeSelect.value;
+    }
+    // Ajouter les informations sur la Machine à café si elle est cochée
+    if (coffeeCheckbox.checked) {
+        resultCoffee += `
+            Machine à café : Oui<br>
+            Type de Machine à café : ${coffeeType}<br>
+        `;
+    } else {
+        resultCoffee += `Machine à café : Non<br>`;
+    }
     const kettle = document.getElementById('kettle').checked;
     const toaster = document.getElementById('toaster').checked;
     const microwave = document.getElementById('microwave').checked;
     const oven = document.getElementById('oven').checked;
-    const cooking = document.getElementById('cooking').checked;
     // Récupérer le type de Plaque de cuisson  si la case est cochée
     const cookingCheckbox = document.getElementById('cooking');
     const cookingTypeSelect = document.getElementById('cookingType');
@@ -220,6 +247,7 @@ function showResult() {
         Code Porte SaS: ${code2}<br>
         Boîte au Lettre: ${mailbox}<br>
         Etage: ${floor}<br> 
+        Ascenseur : ${lift}<br>
         Numéro du logement: ${number}<br> 
         Nombre de jeux de Clés : ${key}<br>
         <br><br>
@@ -238,6 +266,7 @@ function showResult() {
         Fer à repasser : ${iron}<br>
         Planche à repasser : ${ironingBoard}<br>
         Sceau à Serpillière : ${bucket}<br>
+        Serpillière : ${mop}<br>
         Sèche-Cheveux : ${hairDryer}<br>
         Ventilateur : ${fan}<br>
         Climatisation : ${air}<br>
@@ -247,7 +276,7 @@ function showResult() {
 
         ÉQUIPEMENT CUISINE : 
         <br><br>
-        Machine a café: ${coffee}<br>
+        ${resultCoffee}
         Bouilloir: ${kettle}<br>
         Grille Pain: ${toaster}<br>
         Micro-onde : ${microwave}<br>
@@ -257,6 +286,7 @@ function showResult() {
         Lave-Vaiselle: ${dishWasher}<br>
         Machine à Laver: ${washingMachine}<br>
         Sèche-linge: ${dryer}<br>
+        Étendoire: ${rack}<br> 
         <br><br>
 
         EQUIPEMENTS CHAMBRE:
@@ -338,9 +368,10 @@ function sendMail() {
 
         
         //Step 5: Equipement cuisine
-        coffee: document.getElementById('coffee').checked,
+        coffee: resultCoffee,
         kettle: document.getElementById('kettle').checked,
         toaster: document.getElementById('toaster').checked,
+        cooking : resultCooking,
         stove: resultStove,
         dishWasher: document.getElementById('dishWasher').checked,
         washingMachine: document.getElementById('washingMachine').checked,
@@ -354,6 +385,16 @@ function sendMail() {
         bedsideLamp: document.getElementById('bedsideLamp').checked,
         electricSocket: document.getElementById('electricSocket').checked,
         storageSpace: document.getElementById('storageSpace').checked,
+
+        //Step 8: Détails technique
+        lift: document.getElementById('lift').checked,
+        garbage: document.getElementById('garbage').value,
+        heating: document.getElementById('heating').value,
+        water : document.getElementById('water').value,
+        meter: document.getElementById('meter').value,
+        cost: document.getElementById('cost').value,
+        other: document.getElementById('other').value,
+
 
         //Step 7: Internet
         wifi: document.getElementById('wifi').value,
