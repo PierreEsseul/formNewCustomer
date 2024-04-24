@@ -127,6 +127,7 @@ function showResult() {
     const date = document.getElementById('date').value;
     const phone = document.getElementById('phone').value;
     const email = document.getElementById('email').value;
+    const fiscal = document.getElementById('fiscal').value;
     
     // Step 2: Logement
     const address = document.getElementById('address').value;
@@ -256,6 +257,7 @@ function showResult() {
         Date d'anniversaire: ${date}<br>
         Téléphone: ${phone}<br> 
         E-mail: ${email}<br>
+        Numéro fiscal: ${fiscal}<br>
         <br><br>
 
         LOGEMENT : 
@@ -364,6 +366,7 @@ function sendMail() {
         date: document.getElementById('date').value,
         phone: document.getElementById('phone').value,
         email: document.getElementById('email').value,
+        fiscal: document.getElementById('fiscal').value,
 
         //step2
         address: document.getElementById('address').value,
