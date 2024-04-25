@@ -1,10 +1,11 @@
 let currentStep = 1;
 // Récupérer les réponses  
-let resultBedSize = "";
+let bedSizesText = "";
 let resultCoffee= "";
 let resultCooking= "";
 let resultStove= "";
 let bedSizes = []; // Initialisez bedSizes une seule fois ici
+
 
 function previousStep() {
     document.getElementById('step' + currentStep).classList.remove('current-step');
@@ -42,13 +43,13 @@ function nextStep() {
         // Sélectionne le conteneur pour les champs de taille de lit
         const bedSizeContainer = document.getElementById('bedSizeContainer');
 
-        // Vide le contenu existant du conteneur
+        // Nettoie le contenu existant du conteneur
         bedSizeContainer.innerHTML = '';
 
         // Génère dynamiquement les champs de taille de lit en fonction du nombre de lits saisi
-        for (let i = 1; i <= bedCount; i++) {
+        for (let i = 0; i <= bedCount-1; i++) {
             const label = document.createElement('label');
-            label.textContent = `Taille du lit ${i} : `;
+            label.textContent = `Taille du lit ${i+1} : `;
 
             const input = document.createElement('input');
             input.type = 'text';
@@ -57,19 +58,12 @@ function nextStep() {
 
             // Ajoutez un gestionnaire d'événements pour mettre à jour les valeurs des champs de taille de lit
             input.addEventListener('input', function(event) {
-                const index = parseInt(event.target.id.replace('bedSizeInput_', ''));
-                bedSizes[index] = event.target.value;
-                // Stockez les valeurs des champs de taille de lit dans bedSizes
-                bedSizes.push(event.target.value);
-                console.log('MaJ de la valeur bedSizes : ', bedSizes);
+                bedSizes[i] = event.target.value;
             });
 
             bedSizeContainer.appendChild(label);
             bedSizeContainer.appendChild(input);
             bedSizeContainer.appendChild(document.createElement('br'));
-        
-            // Appeler la fonction pour mettre à jour resultBedSize avec les valeurs actuelles de bedSizes
-            updateBedSize();
         }
 
         const coffeeCheckbox = document.getElementById('coffee');
@@ -108,19 +102,19 @@ function nextStep() {
     }
 }
 
-function updateBedSize() {
-    // Mettre à jour resultBedSize avec les tailles de lit saisies par l'utilisateur
-    const bedSizeInputs = document.querySelectorAll('.bedSizeInput');
-    resultBedSize = ""; // Réinitialiser resultBedSize
 
-    bedSizeInputs.forEach((input, index) => {
-        resultBedSize += `Taille du lit ${index + 1}: ${input.value}<br>`;
-    });
 
-    console.log(resultBedSize);
-}
 
 function showResult() {
+
+    // Récupérer les valeurs des tailles de lit directement des champs de saisie
+    const bedSizeInputs = document.querySelectorAll('.bedSizeInput');
+    console.log("bedSizeInputs: ", bedSizeInputs);
+    
+    bedSizes.forEach((size, index) => {
+        bedSizesText += `Taille du lit ${index + 1}: ${size}<br>`;
+    });
+
     //Step 1: Informations Personnelles
     const surname = document.getElementById('surname').value;
     const name = document.getElementById('name').value;
@@ -248,8 +242,7 @@ function showResult() {
     const wifi = document.getElementById('wifi').value;
     const password = document.getElementById('password').value;
 
-     // Mettre à jour les tailles de lit avant d'afficher les résultats
-     updateBedSize();
+    
 
     // Afficher les résultats
     document.getElementById('result-text').innerHTML = `
@@ -317,8 +310,7 @@ function showResult() {
 
         EQUIPEMENTS CHAMBRE:
         <br><br>
-        ${resultBedSize}
-        Oreiller (x2 / lit): ${pillows}<br>
+        ${bedSizesText}
         Couette (x1 / lit): ${duvet}<br>
         Table de Chevet (x2): ${bedsideTable}<br>
         Lampe de Chevet (x2): ${bedsideLamp}<br>
@@ -358,6 +350,8 @@ function showResult() {
     // Afficher le bouton de soumission
     document.getElementById('submitButton').style.display = 'block';
 }
+
+
 
 
 function sendMail() {
@@ -402,20 +396,20 @@ function sendMail() {
         office : document.getElementById('office').checked,
         
         //Step 5: Equipement cuisine
-        coffee: resultCoffee,
+        coffee: resultCoffee.replaceAll('<br>', '\n'),
         kettle: document.getElementById('kettle').checked,
         toaster: document.getElementById('toaster').checked,
         microwave : document.getElementById('microwave').checked,
         oven : document.getElementById('oven').checked,
-        cooking : resultCooking,
-        stove : resultStove,
+        cooking : resultCooking.replaceAll('<br>', '\n'),
+        stove : resultStove.replaceAll('<br>', '\n'),
         dishWasher : document.getElementById('dishWasher').checked,
         washingMachine : document.getElementById('washingMachine').checked,
         dryer : document.getElementById('dryer').checked,
         rack : document.getElementById('rack').checked,
 
         //Step 6: Equipement Chambre
-        bedSizes: resultBedSize,
+        bedSizes: bedSizesText.replaceAll('<br>', '\n'),
         pillows: document.getElementById('pillows').checked,
         duvet: document.getElementById('duvet').checked,
         bedsideTable: document.getElementById('bedsideTable').checked,
