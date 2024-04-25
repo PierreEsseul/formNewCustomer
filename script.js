@@ -20,7 +20,7 @@ function validateStep() {
     for (const field of requiredFields) {
         if (!field.value) {
             // Affiche un message d'erreur si un champ requis est vide
-            alert('Veuillez remplir tous les champs obligatoires.');
+            alert('Veuillez remplir tous les champs.');
             return false; // Empêche le passage à la page suivante
         }
     }
@@ -247,6 +247,9 @@ function showResult() {
     //Step 9: Internet
     const wifi = document.getElementById('wifi').value;
     const password = document.getElementById('password').value;
+
+     // Mettre à jour les tailles de lit avant d'afficher les résultats
+     updateBedSize();
 
     // Afficher les résultats
     document.getElementById('result-text').innerHTML = `
