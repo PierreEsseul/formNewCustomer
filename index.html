@@ -50,34 +50,34 @@
                     <h2>LOGEMENT:</h2>
                     
                     <label for="address">Adresse du logement :</label>
-                    <input type="text" id="address">
+                    <input type="text" id="address" required>
                     
                     <label for="cp">Code Postale :</label>
-                    <input type="text" id="cp">
+                    <input type="number" id="cp" required>
                     
                     <label for="city">Ville :</label>
-                    <input type="text" id="city">
+                    <input type="text" id="city" required>
 
                     <label for="subway">Station de métro la plus proche :</label>
-                    <input type="text" id="subway">
+                    <input type="text" id="subway" required>
                     
                     <label for="code1">Code porte de la rue :</label>
-                    <input type="number" id="code1">
+                    <input type="text" id="code1" placeholder="Si pas de code écrire badge" required>
                     
                     <label for="code2">Code dans le sas :</label>
-                    <input type="number" id="code2">
+                    <input type="text" id="code2" placeholder="Si pas de code écrire badge" required>
 
                     <label for="mailbox">Numéro et/ou Nom de la Boite au Lettre :</label>
-                    <input type="text" id="mailbox">
+                    <input type="text" id="mailbox" required>
                     
                     <label for="floor">Étage du logement :</label>
-                    <input type="text" id="floor">
+                    <input type="text" id="floor" required>
 
                     <label for="number">Numéro du logement :</label>
-                    <input type="text" id="number">
+                    <input type="text" id="number" required>
 
                     <label for="key">Nombre de jeux de clés :</label>
-                    <input type="number" id="key">
+                    <input type="number" id="key" placeholder="Un minimum de 3 jeux" required>
                     
                     <div class="button">
                         <button type="button" onclick="previousStep()">Précédent</button>
@@ -92,16 +92,16 @@
                     <h2>CAPACITÉ</h2>
 
                     <label for="area">Superficie du logement en m2:</label>
-                    <input type="number" id="area">
+                    <input type="number" id="area" required>
 
                     <label for="pax">Nombre de personnes pouvant être accueillies :</label>
-                    <input type="number" id="pax">
+                    <input type="number" id="pax" required>
 
                     <label for="room">Nombre de chambre(s):</label>
-                    <input type="number" id="room">
+                    <input type="number" id="room" required>
                     
                     <label for="bed">Nombre de lit(s):</label>
-                    <input type="number" id="bed">
+                    <input type="number" id="bed" required>
 
                     <div class="button">
                         <button type="button" onclick="previousStep()">Précédent</button>
@@ -116,7 +116,7 @@
 
                     <div>
                         <label for="vaccum">Modèle Aspirateur</label>
-                        <input type="text" id="vaccum">
+                        <input type="text" id="vaccum" required>
                     </div>
 
                     <div>
@@ -315,7 +315,7 @@
 
                     <div>
                         <label for="bathroom">Nombre de Salle(s) de Bain</label>
-                        <input type="number" id="bathroom">
+                        <input type="number" id="bathroom" required>
                     </div>
 
                     <div>
@@ -356,7 +356,7 @@
                     
                     <div class="description">
                         <label for="garbage">Accès local poubelle :</label>
-                        <textarea placeholder="  Décrivez comment y accéder en quelques lignes" id="garbage"></textarea>
+                        <textarea placeholder="  Décrivez comment y accéder en quelques lignes" id="garbage" required></textarea>
                     </div>
 
                     <div>
