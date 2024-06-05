@@ -21,7 +21,7 @@ function validateStep() {
     for (const field of requiredFields) {
         if (!field.value) {
             // Affiche un message d'erreur si un champ requis est vide
-            alert('Veuillez remplir tous les champs.');
+            alert('Veuillez remplir tous les champs s\'il vous plaît.');
             return false; // Empêche le passage à la page suivante
         }
     }
@@ -122,6 +122,8 @@ function showResult() {
     const phone = document.getElementById('phone').value;
     const email = document.getElementById('email').value;
     const fiscal = document.getElementById('fiscal').value;
+    const iban = document.getElementById('iban').value;
+    const bic = document.getElementById('bic').value;
     
     // Step 2: Logement
     const address = document.getElementById('address').value;
@@ -254,6 +256,8 @@ function showResult() {
         Téléphone: ${phone}<br> 
         E-mail: ${email}<br>
         Numéro fiscal: ${fiscal}<br>
+        IBAN: ${iban}<br>
+        BIC: ${bic}<br>
         <br><br>
 
         LOGEMENT : 
@@ -364,6 +368,8 @@ function sendMail() {
         phone: document.getElementById('phone').value,
         email: document.getElementById('email').value,
         fiscal: document.getElementById('fiscal').value,
+        iban: document.getElementById('iban').value,
+        bic: document.getElementById('bic').value,
 
         //step2
         address: document.getElementById('address').value,
