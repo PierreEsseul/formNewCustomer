@@ -446,7 +446,7 @@ function sendMail() {
 
     };
     
-    emailjs.send('service_9b7xk5g', 'template_0wbrehf', templateParams)
+    emailjs.send('service_7jwblni', 'template_p2p4x6v', templateParams)
         .then(function(response) {
         // Remplacer le bouton par un message de confirmation
         var submitButton = document.getElementById("submitButton");
