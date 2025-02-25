@@ -103,8 +103,6 @@ function nextStep() {
 }
 
 
-
-
 function showResult() {
 
     // Récupérer les valeurs des tailles de lit directement des champs de saisie
@@ -445,19 +443,20 @@ function sendMail() {
         password: document.getElementById('password').value,
 
     };
-    
-    emailjs.send('service_7jwblni', 'template_p2p4x6v', templateParams)
-        .then(function(response) {
-        // Remplacer le bouton par un message de confirmation
-        var submitButton = document.getElementById("submitButton");
-        submitButton.style.display = "none"; // Masquer le bouton
 
-        // Créer et afficher le message de confirmation
+    emailjs.send('service_7jwblni', 'template_p2p4x6v', templateParams)
+    .then(function(response) {
+        console.log("E-mail envoyé avec succès :", response);
+        var submitButton = document.getElementById("submitButton");
+        submitButton.style.display = "none"; 
+
         var confirmationMessage = document.createElement("h3");
         confirmationMessage.textContent = "Merci, vos informations ont bien été envoyées";
-        document.getElementById("form-container").appendChild(confirmationMessage);        }, function(error) {
-            console.error('Error sending e-mail:', error);
-        });
+        document.getElementById("form-container").appendChild(confirmationMessage);
+    }, function(error) {
+        console.error("Erreur lors de l'envoi de l'e-mail :", error);
+        alert("Une erreur est survenue : " + JSON.stringify(error));
+    });
     
   
 }

@@ -7,17 +7,21 @@
         <link rel="stylesheet" href="styles.css">
         <script src="script.js"></script>
 
-        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <script>
-            (function() {
-                emailjs.init("yzVJxs8R9yxq0Rydr");
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+        </script>
+        <script type="text/javascript">
+            (function(){
+                emailjs.init({
+                    publicKey: "GKgT-pDcU1CUruKvJ",
+                });
             })();
         </script>
     </head>
 
     <body>
 
-        <!-- <a><img src="img/logo.png" alt="logo BNB MOTION" class="logo"></a> -->
+       <a href="https://www.checkin-concierge.com/" target="_blank"><img src="img/logo.jpg" alt="logo Checkin-concierge" class="logo"></a>
 
             <div id="step1" class="form-step current-step">
                 <div class="form">
@@ -47,7 +51,7 @@
                     <label for="bic">BIC :</label>
                     <input type="text" id="bic" required><br>
                     
-                    <button type="button" onclick="nextStep()">Suivant</button>
+                    <button onclick="nextStep()">Suivant</button>
                 </div>
             </div>
 
@@ -419,11 +423,9 @@
             </div>    
 
             <div id="result" class="form-step">
-                <h2>Résultat</h2>
+                <h2>Résumé :</h2>
                 <p id="result-text"></p>
             </div>
-
-            <img src="img/fond.png" alt="ensemble icons bnbmotion" class="fond">
 
             <button id="submitButton" onclick="sendMail()" style="display: none;">Envoyer les informations</button>
 
