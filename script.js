@@ -357,6 +357,11 @@ function showResult() {
 
 
 function sendMail() {
+
+    // Affiche le loader
+    const loader = document.getElementById("loader");
+    loader.classList.add("show-loader"); // Si tu utilises la classe pour afficher le loader
+
     
     var templateParams = {
         //step1
@@ -447,14 +452,20 @@ function sendMail() {
     emailjs.send('service_7jwblni', 'template_p2p4x6v', templateParams)
     .then(function(response) {
         console.log("E-mail envoyé avec succès :", response);
+        // Masquer le loader
+        loader.classList.remove("show-loader");
+        // Masquer le bouton d'envoi
         var submitButton = document.getElementById("submitButton");
         submitButton.style.display = "none"; 
 
+        // Afficher le message de confirmation
         var confirmationMessage = document.createElement("h3");
         confirmationMessage.textContent = "Merci, vos informations ont bien été envoyées";
         document.getElementById("form-container").appendChild(confirmationMessage);
     }, function(error) {
         console.error("Erreur lors de l'envoi de l'e-mail :", error);
+        // Masquer le loader en cas d'erreur
+        loader.classList.remove("show-loader");
         alert("Une erreur est survenue : " + JSON.stringify(error));
     });
     
