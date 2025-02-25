@@ -246,7 +246,7 @@ function showResult() {
 
     // Afficher les résultats
     document.getElementById('result-text').innerHTML = `
-        Informations Personnelles : 
+        INFORMATIONS PERSONNELLES : 
         <br><br>
         NOM: ${surname}<br>
         Prénom: ${name}<br>
@@ -310,7 +310,7 @@ function showResult() {
         Étendoire: ${rack}<br> 
         <br><br>
 
-        EQUIPEMENTS CHAMBRE:
+        ÉQUIPEMENT CHAMBRE:
         <br><br>
         ${bedSizesText}
         Couette (x1 / lit): ${duvet}<br>
@@ -320,7 +320,7 @@ function showResult() {
         Espace de rangement pour les Guest: ${storageSpace}<br>
         <br><br>
 
-        EQUIPE SALLE DE BAIN
+        ÉQUIPEMENT SALLE DE BAIN:
         <br><br>
         Nombre de Salle de Bain : ${bathroom}<br>
         Douche : ${shower}<br>
@@ -329,11 +329,11 @@ function showResult() {
         WC sur le pallier : ${landing}<br>
         <br><br>
 
-        DATAILS TECHNIQUES:
+        DÉTAIL TECHNIQUE:
         <br><br>
         Ascenseur : ${lift}<br>
         Accès local poubelle : ${garbage}<br>
-        Type de cahuffage : ${heating}<br>
+        Type de chauffage : ${heating}<br>
         Robinet d'arrivée d'eau général : ${water}<br>
         Compteur électrique : ${meter}<br>
         Tarif minimum par nuit : ${cost}<br>
