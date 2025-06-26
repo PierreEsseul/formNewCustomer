@@ -137,6 +137,7 @@ function showResult() {
      const code2 = document.getElementById('code2').value;
      const mailbox = document.getElementById('mailbox').value;
      const floor = document.getElementById('floor').value;
+     const numberFloor = document.getElementById('numberFloor').value;
      const number = document.getElementById('number').value;
      const key = document.getElementById('key').value;
  
@@ -155,6 +156,8 @@ function showResult() {
      const hairDryer = document.getElementById('hairDryer').checked;
      const fan = document.getElementById('fan').checked;
      const air = document.getElementById('air').checked;
+     const smoke = document.getElementById('smoke').checked;
+     const carbon = document.getElementById('carbon').checked;
      const tv = document.getElementById('tv').checked;
      const office = document.getElementById('office').checked;
  
@@ -176,6 +179,8 @@ function showResult() {
      } else {
          resultCoffee += `Machine à café : Non<br>`;
      }
+     const fridge = document.getElementById('fridge').checked;
+     const freezer = document.getElementById('freezer').checked;
      const kettle = document.getElementById('kettle').checked;
      const toaster = document.getElementById('toaster').checked;
      const microwave = document.getElementById('microwave').checked;
@@ -273,6 +278,7 @@ function showResult() {
          Code Porte SaS: ${code2}<br>
          Boîte au Lettre: ${mailbox}<br>
          Etage: ${floor}<br> 
+         Nombre d'étage dans l'immeuble: ${numberFloor}<br>
          Ascenseur : ${lift}<br>
          Numéro du logement: ${number}<br> 
          Nombre de jeux de Clés : ${key}<br>
@@ -296,6 +302,8 @@ function showResult() {
          Sèche-Cheveux : ${hairDryer}<br>
          Ventilateur : ${fan}<br>
          Climatisation : ${air}<br>
+         Détecteur de fumée : ${smoke}<br>
+         Détecteur de monoxyde de carbonne : ${carbon}<br>
          Télévision : ${tv}<br>
          Espace de travail : ${office}<br>
          <br><br>
@@ -303,6 +311,8 @@ function showResult() {
          ÉQUIPEMENT CUISINE : 
          <br><br>
          ${resultCoffee}
+         Réfrigérateur: ${fridge}<br>
+         Congélateur: ${freezer}<br>
          Bouilloir: ${kettle}<br>
          Grille Pain: ${toaster}<br>
          Micro-onde : ${microwave}<br>
@@ -381,6 +391,7 @@ function sendMail() {
         code2: document.getElementById('code2')?.value || '',
         mailbox: document.getElementById('mailbox')?.value || '',
         floor: document.getElementById('floor')?.value || '',
+        numberFloor: document.getElementById('numberFloor')?.value || '',
         number: document.getElementById('number')?.value || '',
         key: document.getElementById('key')?.value || '',
         area: document.getElementById('area')?.value || '',
@@ -395,9 +406,13 @@ function sendMail() {
         hairDryer: document.getElementById('hairDryer')?.checked || false,
         fan: document.getElementById('fan')?.checked || false,
         air: document.getElementById('air')?.checked || false,
+        smoke: document.getElementById('smoke')?.checked || false,
+        carbon: document.getElementById('carbon')?.checked || false,
         tv: document.getElementById('tv')?.checked || false,
         office: document.getElementById('office')?.checked || false,
         coffee: resultCoffee.replaceAll('<br>', '\n'),
+        fridge: document.getElementById('fridge')?.checked || false,
+        freezer: document.getElementById('freezer')?.checked || false,
         kettle: document.getElementById('kettle')?.checked || false,
         toaster: document.getElementById('toaster')?.checked || false,
         microwave: document.getElementById('microwave')?.checked || false,
