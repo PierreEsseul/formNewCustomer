@@ -454,7 +454,7 @@ function sendMail() {
             const submitBtn = document.getElementById("submitButton");
             if(submitBtn) submitBtn.style.display = "none";
             const confirmationMessage = document.createElement("h3");
-            confirmationMessage.textContent = "Merci, vos informations ont bien été envoyées";
+            confirmationMessage.textContent = "Merci, c'est envoyé!";
             const formContainer = document.getElementById("form-container");
             if(formContainer) formContainer.appendChild(confirmationMessage);
         })

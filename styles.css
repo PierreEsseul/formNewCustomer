@@ -19,12 +19,12 @@ h2 {
 }
 
 h3 {
-    font-size: 2vw;
-    width: 45%;
+    font-size: 130%;
+    width: auto;
     margin: 20px auto 7% auto;
     background-color: rgb(2, 3, 164);
     border: 2px solid rgb(2, 3, 164);
-    border-radius: 30px 30px;
+    border-radius: 200px;
     color: rgb(250, 247, 234);
     text-align: center;
 }
@@ -67,23 +67,29 @@ button {
 }
 
 .submitButton {
-    font-size: 20px;
-    height: 43px;
-    margin: 20px auto auto auto;
-    color: rgb(2, 3, 164);
-    background-color: rgb(250, 247, 234);
-    border: 2px solid rgb(2, 3, 164);
-    border-radius: 30px 30px;
+    border: none;
+    margin: 45px auto 20% auto;
+    font-size: 130%;
+    background: rgb(2, 3, 164);
+    color: rgb(250, 247, 234);
+    border-radius: 200px;
+    padding: 5%;
 }
 
-.submitbutton:hover {
-    background-color: rgb(2, 3, 164);
-    color: rgb(250, 247, 234);
+.submitButton:hover {
+    background-color: rgb(250, 247, 234);
+    color: rgb(2, 3, 164);
+    border: 2px solid rgb(2, 3, 164);
+    border-radius: 200px;
 }
 
 .button {
     display: flex;
     justify-content: space-around;
+}
+
+.result-text {
+    margin-left: 12%;
 }
 
 /* Styles pour le loader */
