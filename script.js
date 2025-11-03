@@ -328,12 +328,13 @@ function showResult() {
          ÉQUIPEMENT CHAMBRE:
          <br><br>
          ${bedSizesText}
-         Couette (x1 / lit): ${duvet}<br>
-         Table de Chevet (x2): ${bedsideTable}<br>
-         Lampe de Chevet (x2): ${bedsideLamp}<br>
-         Prise électrique à proximité du lit: ${electricSocket}<br>
-         Espace de rangement pour les Guest: ${storageSpace}<br>
-         <br><br>
+        Couette (x1 / lit): ${duvet}<br>    
+        Oreiller (x2 / lit): ${pillows}<br>
+        Table de Chevet (x2): ${bedsideTable}<br>
+        Lampe de Chevet (x2): ${bedsideLamp}<br>
+        Prise électrique à proximité du lit: ${electricSocket}<br>
+        Espace de rangement pour les Guest: ${storageSpace}<br>
+        <br><br>
  
          ÉQUIPEMENT SALLE DE BAIN:
          <br><br>
