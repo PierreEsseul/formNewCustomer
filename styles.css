@@ -27,6 +27,7 @@ h3 {
     border-radius: 200px;
     color: rgb(250, 247, 234);
     text-align: center;
+    padding: 4px;
 }
 
 label{
@@ -69,11 +70,11 @@ button {
 .submitButton {
     border: none;
     margin: 45px auto 20% auto;
-    font-size: 130%;
+    font-size: 22px;
     background: rgb(2, 3, 164);
     color: rgb(250, 247, 234);
     border-radius: 200px;
-    padding: 5%;
+    padding: 17px;
 }
 
 .submitButton:hover {
