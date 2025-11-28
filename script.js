@@ -138,6 +138,7 @@ function showResult() {
      const mailbox = document.getElementById('mailbox').value;
      const floor = document.getElementById('floor').value;
      const numberFloor = document.getElementById('numberFloor').value;
+     const year = document.getElementById('year').value;
      const number = document.getElementById('number').value;
      const key = document.getElementById('key').value;
  
@@ -279,6 +280,7 @@ function showResult() {
          Boîte au Lettre: ${mailbox}<br>
          Etage: ${floor}<br> 
          Nombre d'étage dans l'immeuble: ${numberFloor}<br>
+         Année de construction: ${year}<br>
          Ascenseur : ${lift}<br>
          Numéro du logement: ${number}<br> 
          Nombre de jeux de Clés : ${key}<br>
@@ -393,6 +395,7 @@ function sendMail() {
         mailbox: document.getElementById('mailbox')?.value || '',
         floor: document.getElementById('floor')?.value || '',
         numberFloor: document.getElementById('numberFloor')?.value || '',
+        year: document.getElementById('year')?.value || '',
         number: document.getElementById('number')?.value || '',
         key: document.getElementById('key')?.value || '',
         area: document.getElementById('area')?.value || '',
@@ -449,7 +452,6 @@ function sendMail() {
 
     emailjs.send('service_7jwblni', 'template_p2p4x6v', templateParams)
         .then(response => {
-            console.log("E-mail envoyé avec succès :", response);
             if(loader) loader.classList.remove("show-loader");
             const submitBtn = document.getElementById("submitButton");
             if(submitBtn) submitBtn.style.display = "none";
@@ -459,7 +461,6 @@ function sendMail() {
             if(formContainer) formContainer.appendChild(confirmationMessage);
         })
         .catch(error => {
-            console.error("Erreur lors de l'envoi de l'e-mail :", error);
             if(loader) loader.classList.remove("show-loader");
             alert("Une erreur est survenue : " + JSON.stringify(error));
         });
